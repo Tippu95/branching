@@ -1,0 +1,88 @@
+from pygame import mixer
+import time
+
+
+# t1 = time.time()
+# time.sleep(3)
+# t2 = time.time()
+# diff = int(t2-t1)
+# print(diff)
+
+# total_water_needs_to_drink_ltr = 3
+# wt_st_time = time.time()
+def water_func():
+    print("calling water func")
+    st_time = time.time()
+    mixer.init()
+    mixer.music.load("tip_tip.mp3")
+    mixer.music.play()
+    wt_user_input = input("please drink water 250ml and then enter done")
+    while wt_user_input != "done" and int(time.time()-st_time) <= 40:
+        wt_user_input = input("please drink water 250ml and then enter done")
+    if wt_user_input == "done":
+        mixer.music.stop()
+
+# water_func()
+
+def eye_func():
+    print("calling eye func")
+    mixer.init()
+    mixer.music.load("Kan-Kanna.mp3")
+    mixer.music.play()
+    wt_user_input = input("please give some 2 min rest and then enter done")
+    while wt_user_input != "done":
+        wt_user_input = input("please give some 2 min rest and then enter done")
+    if wt_user_input == "done":
+        mixer.music.stop()
+
+
+# eye_func()
+
+def exercise_func():
+    print("exercise eye func")
+    mixer.init()
+    mixer.music.load("Gym_Workout.mp3")
+    mixer.music.play()
+    wt_user_input = input("please exercise for 2 min rest and then enter done")
+    while wt_user_input != "done":
+        wt_user_input = input("please exercise for 2 min rest and then enter done")
+    if wt_user_input == "done":
+        mixer.music.stop()
+
+
+if __name__ == '__main__':
+    start_time = time.time()
+    # water_time_minutes = 540
+    # eye_time_minutes = 600
+    # exercise_time_minutes = 540
+    water_start_time = 0
+    rest_start_time = 0
+    exercise_start_time = 0
+    time.sleep(100)
+    end_time = time.time()
+    times_of_water_drink = 0
+    times_of_rest_given = 0
+    times_of_exercise = 0
+    while (times_of_water_drink < 3 or times_of_rest_given < 3 or times_of_exercise < 3) \
+            and int(time.time()-start_time) <= 660:
+        if int(time.time()-water_start_time) >= 180 and times_of_water_drink < 3:
+            water_func()
+            water_start_time = time.time()
+            times_of_water_drink += 1
+            print(f"water cycle is {times_of_water_drink}, eyes cycle {times_of_rest_given}, "
+                  f"exercise cycle {times_of_exercise}")
+        if int(time.time()-rest_start_time) >= 60 and times_of_rest_given < 3:
+            eye_func()
+            rest_start_time = time.time()
+            times_of_rest_given += 1
+            print(f"water cycle is {times_of_water_drink}, eyes cycle {times_of_rest_given}, "
+                  f"exercise cycle {times_of_exercise}")
+        if int(time.time()-exercise_start_time) >= 240 and times_of_exercise < 3:
+            exercise_func()
+            exercise_start_time = time.time()
+            times_of_exercise += 1
+            print(f"water cycle is {times_of_water_drink}, eyes cycle {times_of_rest_given}, "
+              f"exercise cycle {times_of_exercise}")
+    print("great day")
+
+

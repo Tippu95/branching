@@ -1,0 +1,24 @@
+import random
+import  array
+
+my_list = ['a', 'b', 'c', 'a', 'b', 'e', 'a', 'c']
+# print(random.choice(my_list))
+# rml = ['a']
+# print(my_list)
+# print(my_list)
+unwanted = ['a']
+# x = list(enumerate(my_list))
+# print(x.remove('a'))
+# x = array.array(my_list)
+# print(my_list)
+x = [ele for ele in my_list if ele not in unwanted]
+# print('a'.__ne__)
+# print(filter.__doc__)
+res = list(filter(('a').__ne__, my_list))
+# print(res)
+
+#=my_list
+x = "".join(my_list).replace('a','')
+print(list(x))
+
+
