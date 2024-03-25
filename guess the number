@@ -1,0 +1,27 @@
+import random
+fixed_value = random.randint(0, 100)
+print(random.randint.__doc__)
+#print(fixed_value)
+print("please guess the number within 9 attempts")
+st_user_input = input("please enter the number ")
+try:
+    user_input = int(st_user_input)
+    for i in range(9-1):
+        if user_input == fixed_value:
+            print("you won")
+            print("you took", i+1, "attempts to guess")
+            break
+        elif user_input > fixed_value:
+            print("provided number is bigger one try with smaller number")
+            user_input = int(input("please enter the number again "))
+        else:
+            print("provided number is smaller one try with bigger number")
+            user_input = int(input("please enter the number again "))
+    else:
+        print("you have used all the attempts and didn't guess the number")
+
+except Exception as e:
+    print(e)
+    print("please play the game again with only integers")
+
+
